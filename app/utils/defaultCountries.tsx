@@ -1,0 +1,104 @@
+const defaultStates = [
+    {
+        name:"Madrid",
+        country:"ES",
+        state:"Madrid",
+        lat:40.4165,
+        lon:-3.7026,
+    },
+    {
+        name:"London",
+        country:"GB",
+        state:"England",
+        lat:51.5074,
+        lon:-0.1278,
+    },
+    {
+        name:"New York",
+        country:"US",
+        state:"New York",
+        lat:40.7128,
+        lon:-74.0060,
+    },
+    {
+        name:"Sydney",
+        country:"AU",
+        state:"New South Wales",
+        lat:-33.8688,
+        lon:151.2093,
+    },{
+        name:"Tokyo",
+        country:"JP",
+        state:"Tokyo",
+        lat:35.6895,
+        lon:139.6917,
+    },{
+        name:"Cairo",
+        country:"EG",
+        state:"Cairo",
+        lat:30.0462,
+        lon:31.2354,
+    },{
+        name:"Beijing",
+        country:"CN",
+        state:"Beijing",
+        lat:39.9042,
+        lon:116.4074,
+    },{
+        name:"Paris",
+        country:"FR",
+        state:"��le-de-France",
+        lat:48.8566,
+        lon:2.3522,
+    },{
+        name:"Berlin",
+        country:"DE",
+        state:"Berlin",
+        lat:52.5200,
+        lon:13.4049,
+    },{
+        name:"Rome",
+        country:"IT",
+        state:"Lazio",
+        lat:41.9028,
+        lon:12.4964,
+    },{
+        name:"Moscow",
+        country:"RU",
+        state:"Rostov Oblast",
+        lat:55.7558,
+        lon:37.6176,
+    },{
+        name:"Bangkok",
+        country:"TH",
+        state:"Bangkok",
+        lat:13.7563,
+        lon:100.5018,
+    },{
+        name:"Istanbul",
+        country:"TR",
+        state:"Istanbul",
+        lat:41.0082,
+        lon:28.9784,
+    },{
+        name:"Shanghai",
+        country:"CN",
+        state:"Shanghai",
+        lat:31.2304,
+        lon:121.4737,
+    },{
+        name:"Delhi",
+        country:"IN",
+        state:"Delhi",
+        lat:28.6139,
+        lon:77.2090,
+    },{
+        name:"Uttar-Pradesh",
+        country:"IN",
+        state:"Uttar Pradesh",
+        lat:26.8467,
+        lon:80.9462,
+    }
+];
+
+export default defaultStates;
