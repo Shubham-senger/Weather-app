@@ -1,6 +1,9 @@
+import DailyForecast from "./components/DailyForecast/DailyForecast";
 import Navbar from "./components/Navbar";
 import AirPollution from "./components/Pollution/AirPollution";
+import Sunset from "./components/sunset/sunset";
 import Temperature from "./components/Temperature/Temperature";
+import Wind from "./components/Wind/wind";
 
 export default function Home() {
   return (
@@ -13,6 +16,9 @@ export default function Home() {
         <div className="felx flex-col w-full">
           <div className="instruments grid h-full gap-4 col-span-full sm-2:cools-span-2 lg:grid-cols-3 xl:grid-cols-4">
             <AirPollution/>
+            <Sunset/>
+            <Wind/>
+            <DailyForecast/>
           </div>
         </div>
       </div>
