@@ -74,7 +74,7 @@ function DailyForecast() {
                             {todaysForecast.map(
                                 (forecast:{dt_txt: string; main:{temp:number}})=>{
                                     return(
-                                        <CarouselItem key={forecast.dt_txt} className='flex flex-col gap-4 cursor grab'>
+                                        <CarouselItem key={forecast.dt_txt} className='flex flex-col gap-4 basis-[8.5rem] cursor grab'>
                                             <p className='text-gray-300'>
                                                 {moment(forecast.dt_txt).format("HH:mm")}
                                             </p>

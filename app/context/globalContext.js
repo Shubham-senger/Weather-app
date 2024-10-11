@@ -64,6 +64,7 @@ export const GlobalContextProvider = ({children})=>{
             forecast,
             airQuality,
             fiveDayForecast,
+
         }}>
             <GlobalContextUpdate.Provider >
                 {children}
