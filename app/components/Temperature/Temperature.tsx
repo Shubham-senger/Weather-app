@@ -1,64 +1,70 @@
 "use client";
-
-import { useGlobalContext } from '@/app/context/globalContext';
-import { kelvinToCelsius } from '@/app/utils/misc';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
+import { useGlobalContext } from "@/app/context/globalContext";
 import {
-    clearSky,
-    cloudy,
-    drizzleIcon,
-    navigation,
-    rain,
-    snow,
-  } from "@/app/utils/icons";
-import moment from 'moment';
+  clearSky,
+  cloudy,
+  drizzleIcon,
+  navigation,
+  rain,
+  snow,
+} from "@/app/utils/Icons";
+import { kelvinToCelsius } from "@/app/utils/misc";
+import moment from "moment";
 
 function Temperature() {
-    const {forecast} = useGlobalContext();
+  const { forecast } = useGlobalContext();
 
-    const {main, timezone, name,weather} = forecast;
+  const { main, timezone, name, weather } = forecast;
 
-    if(!forecast || !weather) return <div>Loading...</div>
+  if (!forecast || !weather) {
+    return <div>Loading...</div>;
+  }
 
-    const temp = kelvinToCelsius(main?.temp);
-    const minTemp = kelvinToCelsius(main?.temp_min);
-    const maxTemp = kelvinToCelsius(main?.temp.max);
+  const temp = kelvinToCelsius(main?.temp);
+  const minTemp = kelvinToCelsius(main?.temp_min);
+  const maxTemp = kelvinToCelsius(main?.temp_max);
 
-    const [localTime,setLocalTime] = useState<string>("");
-    const [currentDay,setCurrentDay] = useState<string>("");
+  // State
+  const [localTime, setLocalTime] = useState<string>("");
+  const [currentDay, setCurrentDay] = useState<string>("");
 
-    const {main: weatherMain, description} = weather[0];
+  const { main: weatherMain, description } = weather[0];
 
-    const getIcon = () => {
-        switch (weatherMain) {
-          case "Drizzle":
-            return drizzleIcon;
-          case "Rain":
-            return rain;
-          case "Snow":
-            return snow;
-          case "Clear":
-            return clearSky;
-          case "Clouds":
-            return cloudy;
-          default:
-            return clearSky;
-        }
-      };
+  const getIcon = () => {
+    switch (weatherMain) {
+      case "Drizzle":
+        return drizzleIcon;
+      case "Rain":
+        return rain;
+      case "Snow":
+        return snow;
+      case "Clear":
+        return clearSky;
+      case "Clouds":
+        return cloudy;
+      default:
+        return clearSky;
+    }
+  };
 
+  // Live time update
+  useEffect(() => {
+    // upadte time every second
+    const interval = setInterval(() => {
+      const localMoment = moment().utcOffset(timezone / 60);
+      // custom format: 24 hour format
+      const formatedTime = localMoment.format("HH:mm:ss");
+      // day of the week
+      const day = localMoment.format("dddd");
 
-      useEffect(()=>{
-        const interval = setInterval(()=>{
-            const localMoment = moment().utcOffset(timezone/60);
+      setLocalTime(formatedTime);
+      setCurrentDay(day);
+    }, 1000);
 
-            const formatedTime = localMoment.format("HH:MM:SS");
-
-            const day = localMoment.format("dddd");
-
-            setLocalTime(formatedTime);
-            setCurrentDay(day);
-        },1000)
-      },[])
+    // clear interval
+    return () => clearInterval(interval);
+  }, [timezone]);
 
   return (
     <div
@@ -86,7 +92,7 @@ function Temperature() {
         </p>
       </div>
     </div>
-  )
+  );
 }
 
-export default Temperature
+export default Temperature;

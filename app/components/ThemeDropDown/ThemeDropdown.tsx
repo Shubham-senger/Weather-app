@@ -1,24 +1,20 @@
+"use client";
 
+import * as React from "react";
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { useTheme } from "next-themes";
 
-
-
-
-"use client"
-
-import * as React from "react"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
-
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
+import { Moon, Sun } from "lucide-react";
 
-function ThemeDropdown(){
-  const { setTheme } = useTheme()
+function ThemeDropdown() {
+  const { setTheme } = useTheme();
 
   return (
     <DropdownMenu>
@@ -36,13 +32,9 @@ function ThemeDropdown(){
         <DropdownMenuItem onClick={() => setTheme("dark")}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
 
-export default ThemeDropdown
-
+export default ThemeDropdown;
